@@ -26,3 +26,4 @@ for message in pubsub.listen():
         order_id = order_data["order_id"]
         print(f"got order by order_id : {order_id}")
         redis_pubsub.publish("cutomer_channel", convert_pub_data(customer_data))
+        

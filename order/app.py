@@ -36,7 +36,7 @@ complete = False
 
 while complete is False:
     redis_pubsub.publish("order_channel",  convert_pub_data(order))
-    job = queue.enqueue(send_order(), job_timeout=10)
+    job = queue.enqueue(send_order, job_timeout=10)
     for _ in range(60):
         print(f"job try : {_}")
         if job.result is not None:
